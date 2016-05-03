@@ -288,7 +288,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity
 			})
 			//call and get the synthesis corresponding to the duration and timestamp
 			.exec(http(synthesisResultsCheck(sensorIndex))
-					.get("http://192.168.1.1/messages/synthesis?timestamp="+formatter.format(startTimePackage(sensorIndex))+"&duraion="+(duration(sensorIndex)/1000).toInt)
+					.get("http://192.168.1.1/messages/synthesis?timestamp="+formatter.format(startTimePackage(sensorIndex))+"&duration="+(duration(sensorIndex)/1000).toInt)
   					.check(jsonPath("$..*").findAll.saveAs(SynthesisSensorNum(sensorIndex)))
 					.headers(header)
 					.check(status.is(200)))
